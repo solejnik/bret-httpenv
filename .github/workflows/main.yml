@@ -15,7 +15,7 @@ jobs:
     steps:
             
       - name: Send 111
-        run: echo "Hello ${{ env.DOCKERHUB_USERNAME }}"
+        run: echo "Hello ${{ secrets.DOCKERHUB_USERNAME }}"
       
       - name: Send greeting
         run: echo "Hello ${{ inputs.name }}"
