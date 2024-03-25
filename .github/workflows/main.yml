@@ -4,7 +4,7 @@ name: 06 Build and Scan
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
 
 jobs:
