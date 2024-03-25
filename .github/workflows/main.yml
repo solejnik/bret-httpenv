@@ -20,5 +20,8 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       
-      - name: Send greeting
-        run: echo "Hello ${{ inputs.name }}"
+      - name: Docker build
+        uses: docker/build-push-action@v5
+        with:
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: 11cervantes11/bret-httpenv:latest,11cervantes11/bret-httpenv:tagname
