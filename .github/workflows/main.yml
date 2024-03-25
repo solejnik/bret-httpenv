@@ -14,8 +14,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
             
-      - name: Send 111
-        run: echo "Hello ${{ secrets.DOCKERHUB_USERNAME }}"
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
       
       - name: Send greeting
         run: echo "Hello ${{ inputs.name }}"
