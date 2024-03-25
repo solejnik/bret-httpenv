@@ -6,6 +6,7 @@ on:
   push:
     branches:
       - main
+  pull_request:
 
 jobs:
   build-image:
@@ -18,3 +19,6 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+      
+      - name: Send greeting
+        run: echo "Hello ${{ inputs.name }}"
